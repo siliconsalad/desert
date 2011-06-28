@@ -33,7 +33,7 @@ module Desert
         paths << File.join(component_root, 'app','sweepers')
         paths << File.join(component_root, 'lib')
       end
-      dependencies.load_paths.reverse_each do |path|
+      dependencies.autoload_paths.reverse_each do |path|
         paths << File.expand_path(path)
       end
       paths.uniq!
