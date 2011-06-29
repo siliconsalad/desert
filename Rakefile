@@ -2,7 +2,7 @@ require "rake"
 require 'rake/contrib/rubyforgepublisher'
 require 'rake/clean'
 require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rdoc/task'
 
 desc "Runs the Rspec suite in sqlite (the default)"
 task :default => "spec:sqlite"
@@ -61,7 +61,7 @@ end
 desc "Install dependencies to run the build. This task uses Git."
 task :install_dependencies do
   require "lib/desert/supported_rails_versions"
-  system("git clone git://github.com/rails/rails.git /Users/pivotal/workspace/desert/spec/rails_root/vendor/rails_versions/edge")
+  system("git clone git://github.com/rails/rails.git /Users/pwoestelandt/workspace/desert/spec/rails_root/vendor/rails_versions/edge")
   Dir.chdir("spec/rails_root/vendor/rails_versions/edge") do
     begin
       Desert::SUPPORTED_RAILS_VERSIONS.each do |version, data|
